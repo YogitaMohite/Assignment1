@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Notes</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #fafafa;
+        }
+
+        .container{
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        h2{
+            margin-top: 20px;
+        }
+
+        .ex{
+            background: #f1f1f1;
+            padding: 10px;
+            margin-top: 10px;
+            font-family: monospace;
+            border-left: 3px solid #555;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>JavaScript Notes</h1>
+
+    <h2>1. Difference between var, let and const</h2>
+    <p>used to create variables in JavaScript.</p>
+
+    <ul>
+        <li><b>var:</b>Variable can be redeclared & Updated.A global scope variable.</li>
+        <li><b>let:</b>Variable can not be redeclared but can be Updated.A local scope variable.</li>
+        <li><b>const:</b>Variable can not be redeclared or Updated.A local scope variable</li>
+    </ul>
+
+    <div class="ex">
+        var name = "Yogita";<br>
+        name = "Priya";<br><br>
+
+        let age = 20;<br>
+        age = 21;<br><br>
+
+        const city = "Pune";<br>
+        city = "Mumbai"; // Error yenar ithe
+    </div>
+
+    <h2>2. Hoisting</h2>
+    <p>JavaScript moves variables and functions to the top before running.</p>
+
+    <div class="ex">
+        console.log(x);<br>
+        var x = 10; // Output: undefined
+    </div>
+
+    <div class="ex">
+        console.log(y);<br>
+        let y = 20; // Error
+    </div>
+
+    <h2>3. Function</h2>
+    <p>A function is a reusable block of code.</p>
+
+    <div class="ex">
+        function add(a, b){<br>
+        &nbsp;&nbsp;return a + b;<br>
+        }<br><br>
+
+        add(5, 3); // 8
+    </div>
+
+    <h2>4. Static vs Dynamic Language</h2>
+
+    <p><b>Static:</b> Type is fixed (C, C++,Java).</p>
+    <div class="ex">
+        int age = 20;
+    </div>
+
+    <p><b>Dynamic:</b> Type can change (JavaScript, Python).</p>
+    <div class="ex">
+        let x = 10;<br>
+        x = "Hello"; // allowed
+    </div>
+
+    <h2>5. typeof</h2>
+    <p>typeof tells the type of a value.</p>
+
+    <div class="ex">
+        typeof 10<br>
+        typeof "Hi"<br>
+        typeof true<br>
+        typeof [1,2,3]<br>
+        typeof {a:1}<br>
+        typeof function(){}
+    </div>
+
+    <h2>6. Array and Object</h2>
+
+    <p><b>Array:</b> List of values.</p>
+    <div class="ex">
+        let fruits = ["Apple", "Mango", "Banana"];<br>
+        fruits[1]; // Mango
+    </div>
+
+    <p><b>Object:</b> Key-value data.</p>
+    <div class="ex">
+        let student = {<br>
+        &nbsp;&nbsp;name: "Yogita",<br>
+        &nbsp;&nbsp;age: 20,<br>
+        &nbsp;&nbsp;city: "Pune"<br>
+        };<br><br>
+
+        student.name; // Yogita
+    </div>
+
+</div>
+
+</body>
+</html>
