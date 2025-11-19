@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //Funtion
+function sayHello() {
+    console.log("Hello!");
+}
+sayHello();  // calling the function
+
+//Anonymous Function 
+const fun = function() {
+    console.log("I am an anonymous function");
+};
+fun();
+
+//Arrow Function (⇒)
+const greet = () => {
+    console.log("Hello from arrow function");
+};
+greet();
+
+//short madhey
+const add = (a, b) => a + b;
+
+//conditional block(if-else multiple ahet je condition vr depend astat)
+let age = 18;
+
+if(age >= 18){
+    console.log("You are an adult");
+}else{
+    console.log("You are a minor");
+}
+
+/*Callback Function
+function greet(name){
+    console.log("Hello " + name);
+}
+
+function callGreet(callback){
+    callback("Yogita");
+}
+
+callGreet(greet);*/
+
+
+//Higher Order Function
+function higherOrder(fun){
+    fun();
+}
+
+higherOrder(() => {
+    console.log("I am inside a higher order function");
+});
+</script>
+</html>
