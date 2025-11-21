@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java Collections - Simple Notes with Types</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+        .box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 5px solid #0077ff;
+        }
+        h2 {
+            margin-top: 0;
+            color: #0077ff;
+        }
+        .type {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 5px;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Java Collections - Simple Notes (With Types)</h1>
+
+    <!-- LIST -->
+    <div class="box">
+        <h2>1) List (Order, Allows Duplicates)</h2>
+        <p class="type">Type: <strong>List → Interface</strong> | <strong>ArrayList → Class</strong></p>
+        <p>List stores items in order and allows duplicates.</p>
+        <pre>
+List<String> list = new ArrayList<>();
+list.add("Apple");
+list.add("Banana");
+list.add("Apple");
+System.out.println(list);
+        </pre>
+    </div>
+
+    <!-- SET -->
+    <div class="box">
+        <h2>2) Set (No Duplicates)</h2>
+        <p class="type">Type: <strong>Set → Interface</strong> | <strong>HashSet → Class</strong></p>
+        <p>Set stores unique items. No duplicates allowed.</p>
+        <pre>
+Set<String> set = new HashSet<>();
+set.add("Apple");
+set.add("Banana");
+set.add("Apple");
+System.out.println(set);
+        </pre>
+    </div>
+
+    <!-- TREESET -->
+    <div class="box">
+        <h2>3) TreeSet (Sorted Set, No Duplicates)</h2>
+        <p class="type">Type: <strong>Set → Interface</strong> | <strong>TreeSet → Class</strong></p>
+        <p>TreeSet stores unique items in <strong>sorted order</strong>.</p>
+        <pre>
+Set<String> set = new TreeSet<>();
+set.add("Banana");
+set.add("Apple");
+set.add("Orange");
+System.out.println(set); 
+// Output: [Apple, Banana, Orange]
+        </pre>
+    </div>
+
+    <!-- QUEUE -->
+    <div class="box">
+        <h2>4) Queue (First In, First Out)</h2>
+        <p class="type">Type: <strong>Queue → Interface</strong> | <strong>LinkedList → Class</strong></p>
+        <p>Queue works like a line. First added = first removed.</p>
+        <pre>
+Queue<String> q = new LinkedList<>();
+q.add("A");
+q.add("B");
+System.out.println(q.remove()); // A
+        </pre>
+    </div>
+
+    <!-- HASHMAP -->
+    <div class="box">
+        <h2>5) HashMap (Key → Value, No Order)</h2>
+        <p class="type">Type: <strong>Map → Interface</strong> | <strong>HashMap → Class</strong></p>
+        <p>HashMap stores key-value pairs without order.</p>
+        <pre>
+Map<String, Integer> map = new HashMap<>();
+map.put("Apple", 50);
+map.put("Banana", 30);
+map.put("Apple", 60); 
+System.out.println(map);
+        </pre>
+    </div>
+
+    <!-- TREEMAP -->
+    <div class="box">
+        <h2>6) TreeMap (Sorted Map)</h2>
+        <p class="type">Type: <strong>Map → Interface</strong> | <strong>TreeMap → Class</strong></p>
+        <p>TreeMap stores key-value pairs in <strong>alphabetically sorted</strong> order.</p>
+        <pre>
+Map<String, Integer> map = new TreeMap<>();
+map.put("Banana", 30);
+map.put("Apple", 50);
+map.put("Orange", 40);
+System.out.println(map);
+        </pre>
+    </div>
+
+</body>
+</html>
