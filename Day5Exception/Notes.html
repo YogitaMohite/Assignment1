@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Exception Handling Notes</title>
+<style>
+ body {
+   font-family: Arial, sans-serif;
+   margin: 20px;
+   background: #f4f4f4;
+ }
+ .container {
+   background: white;
+   padding: 20px;
+   border-radius: 12px;
+   max-width: 800px;
+   margin: auto;
+   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+ }
+ h1, h2 {
+   color: #333;
+ }
+ code {
+   background: #eee;
+   padding: 5px;
+   border-radius: 5px;
+   display: block;
+   margin: 10px 0;
+   white-space: pre-wrap;
+ }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Java Exception Handling Notes</h1><h2>What is an Exception?</h2>
+<p>An <b>exception</b> is an unwanted error that stops the normal flow of a program.</p><h2>Why Exception Handling?</h2>
+<ul>
+  <li>To avoid program crash</li>
+  <li>To handle errors smoothly</li>
+  <li>To show custom user-friendly messages</li>
+</ul><h2>Keywords</h2>
+<ul>
+  <li><b>try</b> → code that might cause error</li>
+  <li><b>catch</b> → handles the error</li>
+  <li><b>finally</b> → always runs (optional)</li>
+</ul><h2>Simple Example</h2>
+<code>
+public class Demo {
+    public static void main(String[] args) {
+        try {
+            int a = 10;
+            int b = 0;
+            int c = a / b; // risky line
+            System.out.println(c);
+        } catch (Exception e) {
+            System.out.println("Error occurred: " + e.getMessage());
+        }
+    }
+}
+</code><h2>Output</h2>
+<code>
+Error occurred: / by zero
+</code></div>
+</body>
+</html>
