@@ -1,6 +1,7 @@
-package Day5Exception;
 
-public class EX1 {
+ package Day5Exception;
+
+public class EX{
     public static void main(String[] args) {
         try {
             int a=10;
@@ -14,3 +15,6 @@ public class EX1 {
     }
     
 }
+ 
+    
+
