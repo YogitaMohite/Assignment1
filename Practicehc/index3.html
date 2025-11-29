@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neon Flow — Profile Card</title>
+  <style>
+    :root{
+      --bg1: #0f172a;
+      --bg2: #071025;
+      --accent1: #7ce7ff;
+      --accent2: #a78bfa;
+      --glass: rgba(255,255,255,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,231,255,0.06), transparent),
+                  radial-gradient(900px 500px at 90% 90%, rgba(167,139,250,0.05), transparent),
+                  linear-gradient(135deg,var(--bg1),var(--bg2));
+      display:flex;align-items:center;justify-content:center;padding:32px;color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* animated morphing blob behind card */
+    .blob{
+      position: absolute; inset:0; pointer-events:none; overflow:hidden;
+    }
+    .blob svg{width:1200px;height:1200px;position:relative;opacity:0.18;filter:blur(40px);transform:translate(-15%, -10%)}
+
+    .card{
+      position:relative; z-index:2; width:360px; max-width:92vw; border-radius:18px; padding:28px; 
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      box-shadow: 0 12px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      backdrop-filter: blur(6px) saturate(120%);
+      transition: transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .35s;
+    }
+    .card:hover{ transform: translateY(-8px) scale(1.01); box-shadow: 0 18px 40px rgba(2,6,23,0.7) }
+
+    .avatar{
+      width:78px;height:78px;border-radius:16px;display:inline-grid;place-items:center;overflow:hidden;border:2px solid rgba(255,255,255,0.06);
+      box-shadow: 0 6px 18px rgba(124,231,255,0.06);
+      background: linear-gradient(135deg,var(--accent1),var(--accent2));
+      font-weight:700;color:#031324;font-size:22px
+    }
+
+    .row{display:flex;gap:16px;align-items:center}
+    h1{margin:0;font-size:20px}
+    p.desc{margin:6px 0 0 0;color:rgba(230,238,248,0.78);font-size:13px}
+
+    .badges{display:flex;gap:8px;margin-top:14px}
+    .chip{padding:7px 10px;border-radius:999px;font-size:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.02)}
+
+    .stats{display:flex;gap:12px;margin-top:18px}
+    .stat{flex:1;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));text-align:center}
+    .stat strong{display:block;font-size:18px}
+
+    .btns{display:flex;gap:10px;margin-top:18px}
+    button{flex:1;padding:10px 12px;border-radius:12px;border:0;background:transparent;color:inherit;cursor:pointer;font-weight:600}
+    .primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#041021; box-shadow: 0 6px 18px rgba(124,231,255,0.08)}
+
+    /* small responsive tweak */
+    @media (max-width:420px){.card{padding:18px}.row{gap:12px}.avatar{width:64px;height:64px}}
+
+    /* subtle floating animation for avatar */
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+    .avatar{animation:floaty 4.2s ease-in-out infinite}
+  </style>
+</head>
+<body>
+  <div class="blob" aria-hidden>
+    <!-- SVG morphing blob -->
+    <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1">
+          <stop offset="0" stop-color="#7ce7ff"/>
+          <stop offset="1" stop-color="#a78bfa"/>
+        </linearGradient>
+      </defs>
+      <g fill="url(#g1)">
+        <path id="morph" d="M438,344Q382,438,280,450Q178,462,114,365Q50,268,118,182Q186,96,295,97Q404,98,439,196Q474,294,438,344Z">
+          <animate attributeName="d" dur="10s" repeatCount="indefinite"
+            values="M438,344Q382,438,280,450Q178,462,114,365Q50,268,118,182Q186,96,295,97Q404,98,439,196Q474,294,438,344Z;
+                    M455,320Q404,402,320,430Q236,458,150,395Q64,332,110,240Q156,148,258,106Q360,64,435,150Q510,236,455,320Z;
+                    M438,344Q382,438,280,450Q178,462,114,365Q50,268,118,182Q186,96,295,97Q404,98,439,196Q474,294,438,344Z"/>
+        </path>
+      </g>
+    </svg>
+  </div>
+
+  <article class="card" id="card">
+    <div class="row">
+      <div class="avatar" id="avatar">YM</div>
+      <div style="flex:1">
+        <h1>Yogita Mohite</h1>
+        <p class="desc">Frontend tinkerer · CSS artist · open-source lover</p>
+        <div class="badges">
+          <div class="chip">HTML</div>
+          <div class="chip">CSS</div>
+          <div class="chip">GitHub</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <strong id="repos">12</strong>
+        repos
+      </div>
+      <div class="stat">
+        <strong id="stars">204</strong>
+        stars
+      </div>
+      <div class="stat">
+        <strong id="followers">1.2k</strong>
+        followers
+      </div>
+    </div>
+
+    <div class="btns">
+      <button class="primary" id="visit">View on GitHub</button>
+      <button id="clone">Clone</button>
+    </div>
+  </article>
+
+  <script>
+    // small JS for interaction (change initials automatically and mock link)
+    const avatar = document.getElementById('avatar');
+    const name = document.querySelector('h1').textContent.trim();
+    const initials = name.split(' ').map(s => s[0]).slice(0,2).join('').toUpperCase();
+    avatar.textContent = initials;
+
+    // button actions (demo only)
+    document.getElementById('visit').addEventListener('click', ()=>{
+      // replace with your GitHub profile or repo URL
+      window.open('https://github.com/your-username', '_blank');
+    });
+    document.getElementById('clone').addEventListener('click', ()=>{
+      navigator.clipboard?.writeText('git clone https://github.com/your-username/unique-html-css.git')
+        .then(()=> alert('Clone command copied to clipboard!'))
+        .catch(()=> alert('Copy failed — use the command shown in the file.'));
+    });
+  </script>
+</body>
+</html>
